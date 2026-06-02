@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 export default function HeroSlider({ onShopClick }) {
-  const banner = { src: '/banner/hero.PNG', alt: 'vdgfashion Hero Banner' };
+  const banner = { src: '/banner/hero.png', alt: 'vdgfashion Hero Banner' };
 
   return (
     <div className="relative overflow-hidden w-full bg-gradient-to-b from-purple-100 to-pink-50">

@@ -48,7 +48,7 @@ export default function Header({ onMobileMenuToggle }) {
         >
           <div className="relative h-9 w-28 flex items-center justify-start">
             <Image
-              src="/header/VDG Fashion.PNG"
+              src="/header/vdg-fashion.png"
               alt="vdgfashion logo"
               height={36}
               width={110}

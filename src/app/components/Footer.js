@@ -127,7 +127,7 @@ export default function Footer() {
       {/* 1. Desktop Background (Monitor) */}
       <div className="absolute inset-0 hidden lg:block z-0 select-none pointer-events-none">
         <Image 
-          src="/footer/21.PNG" 
+          src="/footer/21.png" 
           alt="Footer Background Monitor" 
           fill 
           className="object-cover animate-fade-in"
@@ -164,7 +164,7 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 lg:gap-3">
               <div className="relative h-12 w-40 sm:h-14 sm:w-48">
                 <Image
-                  src="/header/VDG Fashion.png"
+                  src="/header/vdg-fashion.png"
                   alt="VDG Fashion logo"
                   fill
                   className="object-contain"
