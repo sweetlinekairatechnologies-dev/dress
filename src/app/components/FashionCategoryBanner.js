@@ -88,54 +88,17 @@ export default function FashionCategoryBanner({ onCategorySelect, onShopClick })
   return (
     <div className="w-full space-y-0" data-aos="fade-up">
       {/* ── Wide Hero Banner ── */}
-      <div
-        className="relative w-full rounded-[1.5rem] overflow-hidden min-h-[180px] max-h-[280px] sm:min-h-[200px]"
-      >
-        {/* Background image */}
+      <div className="relative w-full rounded-[1.5rem] overflow-hidden min-h-[220px] sm:min-h-[260px]">
         <Image
-          src="/banner/categories_banner.png"
-          alt=""
+          src="/reviews/design.png"
+          alt="Toys & Games background"
           fill
           className="object-cover object-center"
           priority
           sizes="(max-width: 768px) 100vw, 1200px"
         />
-
-        {/* Overlay for readable text */}
-        <div
-          className="absolute inset-0 z-[1]"
-          style={{
-            background:
-              'linear-gradient(105deg, rgba(30, 15, 10, 0.82) 0%, rgba(60, 25, 15, 0.55) 45%, rgba(20, 15, 40, 0.35) 100%)',
-          }}
-        />
-
-        {/* Text content */}
-        <div className="relative z-20 flex flex-col justify-center min-h-[180px] sm:min-h-[200px] px-6 sm:px-10 py-8 sm:py-10 w-full sm:w-[62%] max-w-xl">
-          <span
-            className="text-xs sm:text-sm font-bold tracking-[0.18em] uppercase mb-2"
-            style={{ color: '#f59e0b' }}
-          >
-            ✦ Shop By Category
-          </span>
-          <h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight tracking-tight text-white"
-            style={{ textShadow: '0 2px 12px rgba(0,0,0,0.35)' }}
-          >
-            TOYS &amp; GAMES
-          </h2>
-          <p className="text-zinc-300 text-sm sm:text-base mt-2 leading-relaxed font-normal">
-            Fun &amp; learning for every little one!
-          </p>
-          <button
-            onClick={onShopClick}
-            className="mt-5 flex items-center gap-2 w-fit px-5 py-2.5 rounded-xl text-white text-sm font-bold tracking-wider uppercase transition-all duration-200 active:scale-95 hover:brightness-110 shadow-lg"
-            style={{ background: '#e11d48' }}
-          >
-            SHOP NOW
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative z-20 min-h-[220px] sm:min-h-[260px]" />
       </div>
 
       {/* ── Categories Grid (2 rows × 6 cols) ── */}

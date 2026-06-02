@@ -156,8 +156,8 @@ export default function CartDrawer() {
                           <div className="flex items-center border border-zinc-200 rounded-md bg-zinc-50/50">
                             <button
                               onClick={() => updateCartQuantity(item.product.id, item.selectedColor, item.selectedSize, item.quantity - 1)}
-                              className="px-2 py-0.5 text-zinc-500 hover:text-black transition-colors"
-                              disabled={isCheckingOut}
+                              className="px-2 py-0.5 text-zinc-500 hover:text-black transition-colors disabled:cursor-not-allowed disabled:opacity-40"
+                              disabled={isCheckingOut || item.quantity <= 1}
                             >
                               <Minus className="h-3 w-3" />
                             </button>

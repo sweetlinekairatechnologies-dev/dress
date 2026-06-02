@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Search, User, Heart, ShoppingBag, Home, Package, Headphones } from 'lucide-react';
+import Image from 'next/image';
 import { useStore } from '../context/StoreContext';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -42,13 +43,19 @@ export default function Header({ onMobileMenuToggle }) {
         
         {/* Logo - always visible */}
         <div
-          className="flex items-center gap-2 cursor-pointer shrink-0"
+          className="flex items-center cursor-pointer shrink-0 hover:scale-105 transition-transform"
           onClick={() => { setSelectedProduct(null); setSelectedCategory('ALL'); router.push('/'); }}
         >
-          <div className="h-8 w-8 bg-gradient-to-tr from-pink-500 to-indigo-500 rounded-lg flex items-center justify-center text-white font-black text-sm">
-            V
+          <div className="relative h-9 w-28 flex items-center justify-start">
+            <Image
+              src="/header/VDG Fashion.PNG"
+              alt="vdgfashion logo"
+              height={36}
+              width={110}
+              className="object-contain object-left"
+              priority
+            />
           </div>
-          <span className="text-base font-black tracking-tight text-zinc-950 hidden sm:block">vdgfashion</span>
         </div>
 
         {/* Nav buttons: Home, My Orders, Contact */}

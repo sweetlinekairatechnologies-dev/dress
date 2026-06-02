@@ -12,7 +12,6 @@ import 'aos/dist/aos.css';
 import { useStore } from '../context/StoreContext';
 import { 
   Search, 
-  SlidersHorizontal, 
   ChevronLeft, 
   ChevronRight, 
   X, 
@@ -321,7 +320,7 @@ export default function MyOrdersPage() {
         </div>
       )}
 
-      <div className="flex-1 lg:pl-72 flex flex-col min-h-screen min-w-0">
+      <div className="flex-1 lg:pl-0 flex flex-col min-h-screen min-w-0">
         <Header onMobileMenuToggle={() => setMobileSidebarOpen(true)} />
 
         <main className="flex-1 overflow-y-auto flex flex-col justify-between">
@@ -369,11 +368,6 @@ export default function MyOrdersPage() {
                     </button>
                   )}
                 </div>
-                
-                <button className="flex items-center gap-1.5 border border-zinc-200 bg-white px-4 py-2 rounded-full text-xs font-bold text-zinc-650 hover:bg-zinc-50 transition-colors shadow-2xs cursor-pointer">
-                  <SlidersHorizontal className="h-3.5 w-3.5" />
-                  Filter
-                </button>
               </div>
             </section>
 

@@ -54,7 +54,7 @@ export default function CatalogPageLayout({ title, subtitle, type }) {
         </div>
       )}
 
-      <div className="flex-1 lg:pl-72 flex flex-col min-h-screen min-w-0">
+      <div className="flex-1 lg:pl-0 flex flex-col min-h-screen min-w-0">
         <Header onMobileMenuToggle={() => setMobileSidebarOpen(true)} />
 
         <main className="flex-1 overflow-y-auto px-4 sm:px-8 py-6 sm:py-8 w-full max-w-[1400px] mx-auto space-y-6">

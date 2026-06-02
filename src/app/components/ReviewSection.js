@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import {
   Star,
@@ -154,19 +154,23 @@ function ReviewPortrait({ review }) {
 }
 
 export default function ReviewSection() {
-  const scrollContainerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const cardsPerView = 4;
+  const maxIndex = Math.max(0, reviews.length - cardsPerView);
 
-  const scroll = (direction) => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -320 : 320,
-        behavior: 'smooth',
-      });
-    }
+  const handlePrevious = () => {
+    setCurrentIndex(Math.max(0, currentIndex - 1));
   };
 
+  const handleNext = () => {
+    setCurrentIndex(Math.min(maxIndex, currentIndex + 1));
+  };
+
+  const visibleReviews = reviews.slice(currentIndex, currentIndex + cardsPerView);
+
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 bg-transparent">
+    <section className="w-full bg-slate-50">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <h2 className="text-center text-2xl sm:text-3xl font-black text-zinc-950 mb-8 sm:mb-10 tracking-tight">
           Real Love, Real reviews
         </h2>
@@ -174,22 +178,19 @@ export default function ReviewSection() {
         <div className="relative">
           <button
             type="button"
-            onClick={() => scroll('left')}
-            className="absolute left-0 top-[32%] -translate-y-1/2 z-20 p-1.5 text-zinc-600 hover:text-zinc-950"
+            onClick={handlePrevious}
+            disabled={currentIndex === 0}
+            className="absolute left-0 top-[32%] -translate-y-1/2 z-20 p-1.5 text-zinc-600 hover:text-zinc-950 disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label="Previous reviews"
           >
             <ChevronLeft className="w-7 h-7 sm:w-8 sm:h-8" />
           </button>
 
-          <div
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-3 sm:gap-5 pb-2 snap-x snap-mandatory scrollbar-hide px-8 sm:px-12 justify-start sm:justify-center"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {reviews.map((review) => (
+          <div className="flex gap-6 sm:gap-8 pb-2 px-8 sm:px-12 justify-center transition-all duration-500 ease-in-out">
+            {visibleReviews.map((review) => (
               <article
                 key={review.id}
-                className="flex-none w-[148px] sm:w-[168px] snap-center flex flex-col items-center"
+                className="flex-none w-[148px] sm:w-[168px] flex flex-col items-center animate-fade-in"
               >
                 <ReviewPortrait review={review} />
 
@@ -214,21 +215,33 @@ export default function ReviewSection() {
 
           <button
             type="button"
-            onClick={() => scroll('right')}
-            className="absolute right-0 top-[32%] -translate-y-1/2 z-20 p-1.5 text-zinc-600 hover:text-zinc-950"
+            onClick={handleNext}
+            disabled={currentIndex >= maxIndex}
+            className="absolute right-0 top-[32%] -translate-y-1/2 z-20 p-1.5 text-zinc-600 hover:text-zinc-950 disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label="Next reviews"
           >
             <ChevronRight className="w-7 h-7 sm:w-8 sm:h-8" />
           </button>
         </div>
 
-        <p className="mt-8 text-center text-base sm:text-lg font-bold text-zinc-900">
-          Love fashion? Follow <span className="text-zinc-900">@vdgfashion</span> now!
+        <p className="mt-8 text-center text-base sm:text-lg font-bold text-zinc-950">
+          Love fashion? Follow <span className="text-zinc-950">@vdgfashion</span> now!
         </p>
+      </div>
 
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.5s ease-in-out;
         }
       `}</style>
     </section>

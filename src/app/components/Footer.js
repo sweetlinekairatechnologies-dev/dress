@@ -160,13 +160,17 @@ export default function Footer() {
           {/* Logo Description & Social column */}
           <div className="lg:col-span-4 space-y-5 lg:pr-4">
             
-            {/* Colorful custom Trendify logo */}
+            {/* Footer logo uses the header brand image */}
             <div className="flex items-center gap-2.5 lg:gap-3">
-              <div className="h-10 w-10 bg-gradient-to-tr from-[#e11d48] to-[#c026d3] rounded-xl flex items-center justify-center text-white font-extrabold shadow-sm relative">
-                <span className="text-xl font-sans tracking-tighter">V</span>
-                <span className="absolute -bottom-1 -right-1 h-3.5 w-3.5 bg-cyan-400 border-2 border-white rounded-full" />
+              <div className="relative h-12 w-40 sm:h-14 sm:w-48">
+                <Image
+                  src="/header/VDG Fashion.png"
+                  alt="VDG Fashion logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <span className="text-3xl font-black tracking-tight text-zinc-950">vdgfashion</span>
             </div>
             
             <p className="text-[17.5px] font-normal text-zinc-650 leading-relaxed max-w-sm">

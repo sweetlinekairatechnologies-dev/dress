@@ -96,8 +96,7 @@ export function StoreProvider({ children }) {
   };
 
   const updateCartQuantity = (productId, color, size, newQuantity) => {
-    if (newQuantity <= 0) {
-      removeFromCart(productId, color, size);
+    if (newQuantity < 1) {
       return;
     }
     setCart((prevCart) =>

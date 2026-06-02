@@ -117,7 +117,7 @@ export default function AccountPage() {
         </div>
       )}
 
-      <div className="flex-1 lg:pl-72 flex flex-col min-h-screen min-w-0">
+      <div className="flex-1 lg:pl-0 flex flex-col min-h-screen min-w-0">
         <Header onMobileMenuToggle={() => setMobileSidebarOpen(true)} />
 
         <main className="flex-1 overflow-y-auto flex flex-col justify-between">

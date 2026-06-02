@@ -110,7 +110,7 @@ export default function ContactPage() {
       )}
 
       {/* Main Content Pane */}
-      <div className="flex-1 lg:pl-72 flex flex-col min-h-screen min-w-0">
+      <div className="flex-1 lg:pl-0 flex flex-col min-h-screen min-w-0">
         <Header onMobileMenuToggle={() => setMobileSidebarOpen(true)} />
         
         {/* Full-viewport scrolling container with decoupled scroll constraints */}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useStore } from './context/StoreContext';
 import { PRODUCTS } from './data/products';
 import Header from './components/Header';
@@ -34,6 +35,7 @@ export default function Home() {
     setSelectedCategory
   } = useStore();
 
+  const router = useRouter();
   const [showFiltersPanel, setShowFiltersPanel] = useState(false);
 
   // Initialize AOS scroll animation library
@@ -211,7 +213,11 @@ export default function Home() {
                       </button>
 
                       <button
-                        onClick={() => setSelectedCategory('ALL')}
+                        onClick={() => {
+                          setSelectedCategory('ALL');
+                          setSelectedProduct(null);
+                          router.push('/categories');
+                        }}
                         className="text-[10px] font-bold text-[#e11d48] hover:text-[#be123c] flex items-center gap-1 transition-colors"
                       >
                         View All
@@ -311,6 +317,41 @@ export default function Home() {
                 {/* Review Section */}
                 <div data-aos="fade-up">
                   <ReviewSection />
+                </div>
+
+                {/* Unique image section below reviews */}
+                <div data-aos="fade-up" className="relative left-1/2 right-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden rounded-t-[3rem] rounded-b-none mt-14 max-w-none">
+                  <div className="absolute inset-0 -z-10">
+                    <Image
+                      src="/products/gurl.png"
+                      alt="Unique collection"
+                      fill
+                      className="object-cover object-center"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-black/15" />
+                  </div>
+
+                  <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-10 min-h-[360px] sm:min-h-[520px] flex flex-col items-center sm:items-start justify-start text-center sm:text-left">
+                    <div className="w-full max-w-xl sm:max-w-2xl">
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-amber-100 tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
+                        Unique styles for little
+                        <br className="block sm:hidden" />
+                        trendsetters
+                      </h2>
+                      <p className="mt-4 max-w-full text-base sm:text-lg text-slate-100/90 leading-relaxed">
+                        Explore the playful and premium pieces made for every mini-fashion moment.
+                      </p>
+                      <div className="mt-6 flex justify-center sm:justify-start">
+                        <button
+                          type="button"
+                          className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
+                        >
+                          Call Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
               </div>{/* end contained wrapper */}
